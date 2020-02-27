@@ -1,0 +1,63 @@
+import java.util.Scanner; 
+
+public class SavingsAccountTest
+{
+    public static void main(String[] args)
+    {
+        double startBalance; 
+        double annual_Interest_Rate; 
+        int months; 
+        double deposit_Amount; 
+        double withdraw_Amount; 
+
+        //Create an object for Scanner class
+        Scanner input = new Scanner(System.in); 
+
+        //Prompt user for starting balance 
+        System.out.print("Enter starting balance: $"); 
+        startBalance = input.nextDouble(); 
+
+        //Prompt user for annual interest rate
+        System.out.print("Enter annual interest rate: "); 
+        annual_Interest_Rate = input.nextDouble(); 
+
+        //Prompt user for number of months
+        System.out.print("Enter the number of months: ");
+        months = input.nextInt(); 
+
+        /* Create an object for SavingsAccount class */
+        SavingsAccount sa = new
+        SavingsAccount(startBalance, annual_Interest_Rate); 
+
+        //Call to setAnnualInterestRate method
+        sa.setAnnualInterestRate(annual_Interest_Rate);
+
+        //Loop
+        for (int i = 0; i < months; i++)
+        {
+            /* Prompt user for deposit amount */
+            System.out.print("Enter amount to deposit for the month " + (i+1) + ":$"); 
+            deposit_Amount = input.nextDouble(); 
+
+            //Call to deposit method
+            sa.setDeposit(deposit_Amount); 
+
+            /* Prompt user for amount to withdraw */
+            System.out.print("Enter amount to withdraw for the month " + (i+1) + ":$"); 
+            withdraw_Amount = input.nextDouble(); 
+
+            //Call to withdraw method
+            sa.setWithdraw(withdraw_Amount); 
+
+            /* Call to calculateMonthlyInterest method */
+            sa.calculateMonthlyInterest();
+
+        }
+        //end of loop
+
+        //Call to displayData method
+        sa.displayData(); 
+    }
+    //end of main method
+}
+//end of SavingsAccountTest class
