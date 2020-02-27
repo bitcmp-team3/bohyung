@@ -1,0 +1,439 @@
+{\rtf1\ansi\ansicpg949\deff0\nouicompat\deflang1033\deflangfe1042{\fonttbl{\f0\fnil\fcharset129 \'b8\'bc\'c0\'ba \'b0\'ed\'b5\'f1;}}
+{\*\generator Riched20 10.0.18362}\viewkind4\uc1 
+\pard\sl240\slmult1\f0\fs20\lang18 import java.math.BigDecimal;\par
+import java.math.MathContext;\par
+\par
+import java.text.DecimalFormat;\par
+\par
+\par
+\par
+//\'bf\'f8\'b8\'ae\'b1\'dd\'b1\'d5\'b5\'ee\'bb\'f3\'c8\'af\par
+\par
+public class Test1 \{\par
+\par
+// static BigDecimal _money = new BigDecimal(0);\par
+static BigDecimal _return_money = new BigDecimal(0); // \'bb\'f3\'c8\'af\'b1\'dd  \par
+// static BigDecimal _payment = new BigDecimal(0);    // \par
+static BigDecimal _rate_money = new BigDecimal(0);    // \'c0\'cc\'c0\'da\par
+// static BigDecimal _payment_tot = new BigDecimal(0);    // \par
+// static BigDecimal _balance = new BigDecimal(0);    // \par
+\par
+public static void main(String[] args) \{\par
+// TODO Auto-generated method stub\par
+\par
+//int term_i = Integer.parseInt(term_val.getText().toString());\par
+int term_i = 360; // \'b4\'eb\'c3\'e2\'b1\'e2\'b0\'a3\par
+\par
+// money_s = money_val.getText().toString().replaceAll(",", "");\par
+\par
+BigDecimal money = new BigDecimal(153000000);\par
+\par
+//rate_s = rate_val.getText().toString();\par
+\par
+BigDecimal rate = new BigDecimal(2.75);\par
+\par
+\par
+//term_s = term_val.getText().toString();\par
+\par
+BigDecimal term = new BigDecimal(360); // \'b4\'eb\'c3\'e2 \'b1\'e2\'b0\'a3\par
+\par
+\par
+BigDecimal result = new BigDecimal(0);\par
+\par
+\par
+// BigDecimal result_2 = new BigDecimal(0);\par
+\par
+\par
+BigDecimal hundred = new BigDecimal("100");\par
+\par
+BigDecimal twelve = new BigDecimal("12");\par
+\par
+\par
+// BigDecimal Big_loan_total = new BigDecimal("1");\par
+\par
+\par
+BigDecimal Big_r_d = new BigDecimal("1");\par
+\par
+\par
+BigDecimal Big_result_d = new BigDecimal("1"); // \'b0\'e1\'b0\'fa\'b0\'aa\'c0\'b8\'b7\'ce \'be\'b2\'c0\'cf \'ba\'af\'bc\'f6\par
+\par
+\par
+BigDecimal bunja = new BigDecimal("1"); // \'ba\'d0\'c0\'da\par
+\par
+BigDecimal bunmo = new BigDecimal("1"); // \'ba\'d0\'b8\'f0\par
+\par
+\par
+BigDecimal one = new BigDecimal("1");\par
+\par
+\par
+BigDecimal one_r = new BigDecimal("1");\par
+\par
+BigDecimal r_n = new BigDecimal("1");\par
+\par
+\par
+BigDecimal Ar = new BigDecimal("1");\par
+\par
+BigDecimal sub = new BigDecimal("1");\par
+\par
+// int two = 3;\par
+\par
+\par
+\par
+\par
+result = rate.divide(hundred);\par
+\par
+// result_2 = result.divide(twelve,MathContext.DECIMAL128 ); //r_d\par
+\par
+\par
+Big_r_d = result.divide(twelve,MathContext.DECIMAL128 ); //r_d\par
+\par
+\par
+Big_result_d = money.multiply(Big_r_d);\par
+\par
+Ar= money.multiply(Big_r_d);\par
+\par
+one_r = one.add(Big_r_d);\par
+\par
+r_n = one_r.pow(term_i);\par
+\par
+\par
+bunja = Ar.multiply(r_n);\par
+\par
+bunmo = r_n.subtract(sub);\par
+\par
+Big_result_d = bunja.divide(bunmo,MathContext.DECIMAL128);\par
+\par
+\par
+DecimalFormat df = new DecimalFormat("#,##0");\par
+\par
+// result_value.setText(""+ String.format("%.0f", Big_result_d) );\par
+\par
+// result_value.setText(""+ String.format("%.0f", r_n) );\par
+\par
+// System.out.println("\'bb\'f3\'c8\'af\'b1\'dd : "+ df.format(Big_result_d) +" \'bf\'f8");\par
+\par
+_return_money = Big_result_d;\par
+\par
+// Big_loan_total = Big_result_d.multiply(term).subtract(money);\par
+\par
+// System.out.println(term+"\'b0\'b3\'bf\'f9 \'c3\'d1\'c0\'cc\'c0\'da \'ba\'f1\'bf\'eb(\'bf\'f8): ");\par
+\par
+// System.out.println(""+ df.format(Big_loan_total) +" \'bf\'f8");\par
+\par
+\par
+\par
+//System.out.println("\'c3\'d1 \'bb\'f3\'c8\'af\'b1\'dd\'be\'d7(\'bf\'f8\'b1\'dd+\'c0\'cc\'c0\'da) : "+   df.format(Big_result_d.multiply(term))+" \'bf\'f8" );\par
+\par
+\par
+// System.out.println(_return_money);\par
+\par
+System.out.println("--------------------");\par
+\par
+String mm = "153000000";\par
+\par
+//System.out.println(abc(mm));\par
+\par
+\par
+\par
+// _payment = _return_money.subtract(_rate_money);\par
+\par
+// _balance = money.subtract(_return_money.subtract(_rate_money));\par
+\par
+// _payment_tot = money.subtract(_balance);\par
+\par
+\par
+\par
+// System.out.println("--------------------");\par
+\par
+// System.out.println("\'b3\'b3\'c0\'d4\'bf\'f8\'b1\'dd : "+_payment); // \par
+\par
+// System.out.println("\'c0\'cc\'c0\'da : "+_rate_money);\par
+\par
+// System.out.println("\'b3\'b3\'c0\'d4\'bf\'f8\'b1\'dd\'b0\'e811 : "+_payment_tot);\par
+\par
+// System.out.println("\'c0\'dc\'b1\'dd : "+df.format(_balance).replaceAll(",", ""));\par
+\par
+// System.out.println("\'c0\'dc\'b1\'dd : "+df.format(_balance).replaceAll(",", ""));\par
+\par
+// String aa;\par
+\par
+// String tw;\par
+\par
+String th;\par
+\par
+\par
+BigDecimal two = new BigDecimal("0");\par
+\par
+BigDecimal three = new BigDecimal("0");\par
+\par
+BigDecimal four = new BigDecimal("0");\par
+\par
+BigDecimal five = new BigDecimal("0");\par
+\par
+BigDecimal six = new BigDecimal("0");\par
+\par
+\par
+\par
+for( int i = 1;i<=term_i; i++)\{\par
+\par
+\par
+\par
+\par
+//System.out.println(rate(mm));\par
+\par
+th = abc(mm,"three");// \'c0\'cc\'c0\'da\par
+\par
+three = new BigDecimal(th); // \'c0\'cc\'c0\'da\par
+\par
+\par
+two =_return_money.subtract(three);\par
+\par
+\par
+mm = abc(mm,"five");//\'c0\'dc\'b1\'dd\par
+\par
+five = new BigDecimal(mm);//\'c0\'dc\'b1\'dd\par
+\par
+\par
+four =  four.add(two); \par
+\par
+\par
+six =  six.add(three);\par
+\par
+\par
+System.out.println("NO : "+i);\par
+\par
+System.out.println("\'bb\'f3\'c8\'af\'b1\'dd : "+df.format(_return_money) +"\'bf\'f8");\par
+\par
+System.out.println("\'b3\'b3\'c0\'d4\'bf\'f8\'b1\'dd : "+df.format(two)+"\'bf\'f8");\par
+\par
+System.out.println("\'c0\'cc\'c0\'da : "+df.format(three)+"\'bf\'f8");\par
+\par
+System.out.println("\'b3\'b3\'c0\'d4\'bf\'f8\'b1\'dd\'b0\'e8 : "+df.format(four)+"\'bf\'f8");\par
+\par
+System.out.println("\'c0\'dc\'b1\'dd : "+df.format(five).replaceAll("-","")+"\'bf\'f8");\par
+\par
+\par
+System.out.println("--------------------");\par
+\par
+\}\par
+\par
+System.out.println("\'c3\'d1 \'c0\'cc\'c0\'da : "+df.format(six)+"\'bf\'f8");\par
+\par
+\par
+\par
+\par
+\}\par
+\par
+\par
+public static String abc(String m,String f)\{// \'c0\'dc\'b1\'dd\par
+\par
+//int term_i = Integer.parseInt(term_val.getText().toString());\par
+\par
+int term_i = 1;\par
+\par
+\par
+// money_s = money_val.getText().toString().replaceAll(",", "");\par
+\par
+BigDecimal money = new BigDecimal(m);\par
+\par
+\par
+//rate_s = rate_val.getText().toString();\par
+\par
+BigDecimal rate = new BigDecimal(2.75); // \'c0\'cc\'c0\'da\'c0\'b2\par
+\par
+\par
+//term_s = term_val.getText().toString();\par
+\par
+BigDecimal term = new BigDecimal(1);\par
+\par
+\par
+BigDecimal result = new BigDecimal(0);\par
+\par
+\par
+// BigDecimal result_2 = new BigDecimal(0);\par
+\par
+\par
+BigDecimal hundred = new BigDecimal("100");\par
+\par
+BigDecimal twelve = new BigDecimal("12");\par
+\par
+\par
+\par
+BigDecimal Big_r_d = new BigDecimal("1");\par
+\par
+\par
+BigDecimal Big_result_d = new BigDecimal("1"); // \'b0\'e1\'b0\'fa\'b0\'aa\'c0\'b8\'b7\'ce \'be\'b2\'c0\'cf \'ba\'af\'bc\'f6\par
+\par
+\par
+BigDecimal bunja = new BigDecimal("1"); // \'ba\'d0\'c0\'da\par
+\par
+BigDecimal bunmo = new BigDecimal("1"); // \'ba\'d0\'b8\'f0\par
+\par
+\par
+BigDecimal one = new BigDecimal("1");\par
+\par
+\par
+BigDecimal one_r = new BigDecimal("1");\par
+\par
+BigDecimal r_n = new BigDecimal("1");\par
+\par
+\par
+BigDecimal Ar = new BigDecimal("1");\par
+\par
+BigDecimal sub = new BigDecimal("1");\par
+\par
+// int two = 3;\par
+\par
+\par
+\par
+\par
+result = rate.divide(hundred);\par
+\par
+// result_2 = result.divide(twelve,MathContext.DECIMAL128 ); //r_d\par
+\par
+\par
+Big_r_d = result.divide(twelve,MathContext.DECIMAL128 ); //r_d\par
+\par
+\par
+Big_result_d = money.multiply(Big_r_d);\par
+\par
+Ar= money.multiply(Big_r_d);\par
+\par
+one_r = one.add(Big_r_d);\par
+\par
+r_n = one_r.pow(term_i);\par
+\par
+\par
+bunja = Ar.multiply(r_n);\par
+\par
+bunmo = r_n.subtract(sub);\par
+\par
+Big_result_d = bunja.divide(bunmo,MathContext.DECIMAL128);\par
+\par
+\par
+DecimalFormat df = new DecimalFormat("#,##0");\par
+\par
+// result_value.setText(""+ String.format("%.0f", Big_result_d) );\par
+\par
+// result_value.setText(""+ String.format("%.0f", r_n) );\par
+\par
+// System.out.println(""+ df.format(Big_result_d) +" \'bf\'f8");\par
+\par
+\par
+_rate_money = Big_result_d.multiply(term).subtract(money);\par
+\par
+// System.out.println(term+"\'b0\'b3\'bf\'f9 \'c3\'d1\'c0\'cc\'c0\'da \'ba\'f1\'bf\'eb(\'bf\'f8): ");\par
+\par
+// System.out.println("\'c0\'cc\'c0\'da : "+ df.format(Big_loan_total) +" \'bf\'f8");\par
+\par
+\par
+// System.out.println("\'c3\'d1 \'bb\'f3\'c8\'af\'b1\'dd\'be\'d7(\'bf\'f8\'b1\'dd+\'c0\'cc\'c0\'da) : "+   df.format(Big_result_d.multiply(term))+" \'bf\'f8" );\par
+\par
+// _money = Big_result_d.multiply(term);\par
+\par
+money.subtract(_return_money.subtract(_rate_money));\par
+\par
+if (f == "five")\{/// \'c0\'dc\'b1\'dd\par
+\par
+return ""+money.subtract(_return_money.subtract(_rate_money));\par
+\par
+\}else if( f == "three")\{ // \'c0\'cc\'c0\'da\par
+\par
+return ""+_rate_money;\par
+\par
+\}else\{\par
+\par
+return "";\par
+\par
+\}\par
+\par
+\par
+\par
+\}\par
+\par
+\par
+\par
+\par
+\}\par
+\par
+\par
+-------------------------------------------------------------------------------------------\par
+\par
+\par
+\par
+import java.math.BigDecimal;\par
+import java.math.MathContext;\par
+import java.text.DecimalFormat;\par
+\par
+// \'bf\'f8\'b1\'dd \'b1\'d5\'b5\'ee\'bb\'f3\'c8\'af\par
+public class Test \{\par
+\par
+public static void main(String[] args) \{\par
+// TODO Auto-generated method stub\par
+BigDecimal tot = new BigDecimal("153000000"); // \'b4\'eb\'c3\'e2 \'b1\'dd\'be\'d7\par
+int I_cnt=360;\par
+BigDecimal cnt = new BigDecimal("360"); // \'b4\'eb\'c3\'e2 \'b1\'e2\'b0\'a3\par
+BigDecimal rate = new BigDecimal("2.75"); // \'c0\'cc\'c0\'da\par
+BigDecimal hundred = new BigDecimal("100");  //\'c0\'cc\'c0\'da \'b9\'e9\'ba\'d0\'c0\'a7\par
+BigDecimal year = new BigDecimal("12");  //\'b3\'e2 \'b4\'dc\'c0\'a7 \'c0\'cc\'c0\'da\'c0\'b2 \par
+BigDecimal one = new BigDecimal("0"); // \'b3\'b3\'c0\'d4\'bf\'f8\'b1\'dd\par
+one = tot.divide(cnt,MathContext.DECIMAL128 ); // \'b3\'b3\'c0\'d4\'bf\'f8\'b1\'dd\par
+//System.out.println(one);\par
+BigDecimal one_tot = new BigDecimal("0");  //\'b3\'b3\'c0\'d4\'bf\'f8\'b1\'dd\'b0\'e8\par
+BigDecimal k_t = new BigDecimal("0");  //\'c3\'d1\'c0\'cc\'c0\'da\par
+BigDecimal k = new BigDecimal("0");  //\'b8\'c5\'b4\'de \'c0\'cc\'c0\'da\par
+BigDecimal t = new BigDecimal("0");  //\'bb\'f3\'c8\'af\'b1\'dd\par
+DecimalFormat df = new DecimalFormat("#,##0");\par
+for(int i=1;i<=I_cnt;i++)\par
+\{\par
+k = ((tot.multiply(rate)).divide(hundred, MathContext.DECIMAL128)).divide(year, MathContext.DECIMAL128);  // \'b8\'c5\'b4\'de \'c0\'cc\'c0\'da\par
+k_t = k_t.add(k); // \'c3\'d1\'c0\'cc\'c0\'da\par
+tot = tot.subtract(one); // \'c0\'dc\'b1\'dd\par
+one_tot = one_tot.add(one); // \'b3\'b3\'c0\'d4\'bf\'f8\'b1\'dd\'b0\'e8\par
+t = k.add(one); // \'bb\'f3\'c8\'af\'b1\'dd\par
+// System.out.println(k_t);\par
+System.out.println("No :" + i + " \'bb\'f3\'c8\'af\'b1\'dd : "+ df.format(t) +" \'b3\'b3\'c0\'d4\'bf\'f8\'b1\'dd : "+df.format(one)+" \'c0\'cc\'c0\'da : "+df.format(k)+" \'b3\'b3\'c0\'d4\'bf\'f8\'b1\'dd\'b0\'e8 : "+df.format(one_tot)+" \'c0\'dc\'b1\'dd : " +df.format(tot));\par
+\}\par
+System.out.println("\'c3\'d1\'c0\'cc\'c0\'da : " + df.format(k_t));\par
+\}\par
+\par
+\}\par
+------------------------------------------------------------------------------------\par
+\par
+import java.math.BigDecimal;\par
+import java.math.MathContext;\par
+import java.text.DecimalFormat;\par
+\par
+// \'bf\'f8\'b1\'dd\'b8\'b8\'b1\'e2\'c0\'cf\'bb\'f3\'c8\'af\par
+public class Test2 \{\par
+\par
+public static void main(String[] args) \{\par
+// TODO Auto-generated method stub\par
+BigDecimal money = new BigDecimal(153000000); // \'bf\'f8\'b1\'dd\par
+int term_i = 360; // \'b4\'eb\'c3\'e2\'b1\'e2\'b0\'a3\par
+BigDecimal term = new BigDecimal(360); // \'b4\'eb\'c3\'e2 \'b1\'e2\'b0\'a3\par
+BigDecimal twelve = new BigDecimal("12"); // \'c0\'cf\'b3\'e2\'b0\'a3 \'c1\'f6\'ba\'d2\'c7\'d1 \'c0\'cc\'c0\'da \'b1\'e2\'b0\'a3 \'b0\'ed\'c1\'a4\'b0\'aa\'c0\'cc\'b4\'d9. 12\'b0\'b3\'bf\'f9\par
+BigDecimal rate = new BigDecimal(2.75);    // \'c0\'cc\'c0\'da\'c0\'b2\par
+BigDecimal hundred = new BigDecimal("100");\par
+BigDecimal _rate_money = new BigDecimal(0);    // \'c0\'cc\'c0\'da\par
+BigDecimal tot_rate = new BigDecimal("0"); // \'c3\'d1\'c0\'cc\'c0\'da\par
+_rate_money = money.multiply( (rate.divide(hundred,MathContext.DECIMAL128))).divide(twelve,MathContext.DECIMAL128);\par
+//System.out.println(_rate_money);\par
+DecimalFormat df = new DecimalFormat("#,##0");\par
+for(int i = 1; i<=term_i;i++)\{\par
+System.out.print("no : "+i+" | ");\par
+if( i == term_i)\{\par
+tot_rate = tot_rate.add(_rate_money);\par
+System.out.print("\'bb\'f3\'c8\'af\'b1\'dd : "+df.format(( _rate_money.add(money))) +" | " );\par
+System.out.println("\'b3\'b3\'c0\'d4\'bf\'f8\'b1\'dd : "+df.format(money) + " | \'c0\'cc\'c0\'da : " + df.format(_rate_money) + " | \'b3\'b3\'c0\'d4\'bf\'f8\'b1\'dd\'b0\'e8 : "+money + "  |  \'c0\'dc\'b1\'dd : "+0);\par
+\}else\{\par
+tot_rate = tot_rate.add(_rate_money);\par
+System.out.println("\'bb\'f3\'c8\'af\'b1\'dd : "+df.format(_rate_money)+" | \'b3\'b3\'c0\'d4\'bf\'f8\'b1\'dd : " + 0 +"           | \'c0\'cc\'c0\'da : " + df.format(_rate_money) + " | \'b3\'b3\'c0\'d4\'bf\'f8\'b1\'dd\'b0\'e8 :" + 0 + "  |  \'c0\'dc\'b1\'dd : " + money);\par
+\}\par
+\}\par
+System.out.println("\'c3\'d1\'c0\'cc\'c0\'da : "+df.format(tot_rate));\par
+\}\par
+\par
+\}\par
+}
+ 
